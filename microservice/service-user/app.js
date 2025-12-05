@@ -20,7 +20,7 @@ const discovryserviceurl = "http://localhost:4000/register";
 const registerService = async () => {
   try {
     await axios.post(discovryserviceurl, {
-      name: "service1-user",
+      name: "service-user",
       address: "http://localhost",
       port: 3000,
     });

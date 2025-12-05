@@ -19,7 +19,7 @@ app.use(async (req, res, next) => {
     }
 
     if (req.targetService) {
-      req.targetServiceUrl = `${req.targetService.address}:${req.targetService.port}/${req.targetService.name}`;
+      req.targetServiceUrl = `${req.targetService.address}:${req.targetService.port}`;
       next();
       console.log(req.targetServiceUrl);
     } else {
@@ -36,7 +36,7 @@ app.use(async (req, res) => {
     const reponse = await axios({
       method: req.method,
       url: `${req.targetServiceUrl}${req.originalUrl.replace(
-        /^\/service-[user|voiture]/,
+        /^\/service-(user|voiture)/,
         ""
       )}`,
       data: req.body,
